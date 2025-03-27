@@ -5,29 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dr. Sarah Coe-Odess | Therapist Matching Service</title>
     <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
   </head>
   <body>
     <header>
-      <h1>Dr. Sarah Coe-Odess</h1>
-      <p class="subtitle">PhD | Therapist Matching Specialist</p>
-      <nav>
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#service">Service</a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
+      <div class="header-content">
+        <div class="header-left">
+          <h1>Dr. Sarah Coe-Odess</h1>
+          <p class="subtitle">PhD | Therapist Matching Specialist</p>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#service">Service</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <main>
       <section id="hero">
-        <h2>Find Your Perfect Therapist Match</h2>
-        <p>
-          Expert guidance from a PhD professional to connect you with the right
-          therapist for your unique needs.
-        </p>
-        <a href="#contact" class="cta-button">Get Started</a>
+        <div class="hero-content">
+          <div class="hero-text">
+            <h2>Find Your Perfect Therapist Match</h2>
+            <p>
+              Expert guidance from a PhD professional to connect you with the
+              right therapist for your unique needs.
+            </p>
+            <div class="featured-quote">
+              <p>
+                "Finding the right therapist can be overwhelming, but Sarah made
+                the process so much easier. Her guidance gave me the push I
+                needed to start my therapy journey."
+              </p>
+              <cite>— Haley S., Philadelphia</cite>
+            </div>
+            <a href="#contact" class="cta-button">Find Your Perfect Match</a>
+          </div>
+          <div class="hero-image">
+            <div class="headshot-placeholder">
+              <span>Professional Headshot</span>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section id="about">
@@ -53,6 +78,7 @@
         </p>
         <div class="service-features">
           <div class="feature">
+            <i class="fas fa-handshake feature-icon"></i>
             <h3>Personalized Matching</h3>
             <p>
               Tailored recommendations based on your unique needs and
@@ -60,58 +86,48 @@
             </p>
           </div>
           <div class="feature">
+            <i class="fas fa-brain feature-icon"></i>
             <h3>Expert Guidance</h3>
             <p>Professional insights from a PhD-level specialist</p>
           </div>
           <div class="feature">
+            <i class="fas fa-heart feature-icon"></i>
             <h3>Simplified Process</h3>
-            <p>Streamlined approach to finding your ideal therapist</p>
+            <p>Taking the stress out of finding the right therapist</p>
           </div>
         </div>
       </section>
 
       <section id="testimonials">
-        <h2>Client Testimonials</h2>
+        <h2>Client Experiences</h2>
         <div class="testimonials-grid">
           <div class="testimonial">
+            <i class="fas fa-quote-left quote-icon"></i>
             <p>
-              "Finding the right therapist can be overwhelming, but Sarah made
-              the process so much easier. Navigating insurance and searching on
-              my own felt exhausting, but she took the stress out of it by
-              matching me with options that fit my specific needs."
+              "Sarah helped simplify that for me and provided suggestions for
+              therapists that suited my specific needs. I'd never seen one prior
+              and it was stressful trying to figure out where to start."
             </p>
-            <cite>- Haley S., Philadelphia</cite>
-            <span class="date">January 2025</span>
+            <cite>— Heather D.</cite>
           </div>
           <div class="testimonial">
+            <i class="fas fa-quote-left quote-icon"></i>
             <p>
-              "It was extremely helpful to target my issues and figure out
-              exactly what I was looking for in a therapist as well as what I
-              wanted out of therapy. It's hard to find a provider that is a good
-              fit and covered by insurance/affordable but you made this process
-              easier!"
+              "In a time when my head was in a fog and I was already so
+              overwhelmed, Sarah helped me actually follow through and get the
+              support I needed by making it so easy."
             </p>
-            <cite>- Catherine D., Philadelphia</cite>
-            <span class="date">January 2025</span>
+            <cite>— Dorothy M.</cite>
           </div>
           <div class="testimonial">
+            <i class="fas fa-quote-left quote-icon"></i>
             <p>
-              "The service helped me greatly because I was feeling very
-              overwhelmed by the options. Finding a therapist can be extremely
-              hard to navigate. Having help finding a therapist took out a lot
-              of the guesswork for me."
+              "Sarah was instrumental in helping me find a mental health
+              provider when I felt overwhelmed by the dysfunctional methods for
+              finding care providers. I was quickly paired with a provider who
+              met me where I was at."
             </p>
-            <cite>- Tania B., Boston</cite>
-            <span class="date">July 2023</span>
-          </div>
-          <div class="testimonial">
-            <p>
-              "I felt so validated after speaking to her via DM, and felt as
-              though she asked me all the right questions to help me find a
-              therapist that would be the right fit for me."
-            </p>
-            <cite>- Alyssa, Boston</cite>
-            <span class="date">December 2024</span>
+            <cite>— Abby A.</cite>
           </div>
         </div>
       </section>
@@ -124,12 +140,16 @@
         </p>
         <div class="contact-info">
           <p>
+            <i class="fas fa-envelope"></i>
             Email:
             <a href="mailto:contact@thesarahpist.com"
               >contact@thesarahpist.com</a
             >
           </p>
-          <p>Location: Philadelphia, PA</p>
+          <p>
+            <i class="fas fa-globe"></i> Available for virtual consultations
+            worldwide
+          </p>
         </div>
       </section>
     </main>
