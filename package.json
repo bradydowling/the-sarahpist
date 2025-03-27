@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Therapist matching service website",
   "scripts": {
-    "start": "live-server --port=8080 --no-browser"
+    "start": "live-server --port=8000 --no-browser --ignore=.git/**"
   },
   "devDependencies": {
     "live-server": "1.2.1"
