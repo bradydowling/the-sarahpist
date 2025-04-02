@@ -164,17 +164,16 @@ nav a:hover::after {
   position: relative;
 }
 
-.headshot-placeholder {
-  background-color: var(--white);
+.headshot {
+  width: 100%;
+  height: auto;
   border-radius: var(--border-radius);
-  aspect-ratio: 3/4;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  font-size: 1.2rem;
-  color: #a0a0a0;
-  border: 2px dashed #ddd;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease;
+}
+
+.headshot:hover {
+  transform: scale(1.02);
 }
 
 /* CTA Button */
