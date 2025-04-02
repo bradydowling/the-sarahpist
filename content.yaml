@@ -1,0 +1,95 @@
+header:
+  title: "Dr. Sarah Coe-Odess"
+  subtitle: "PhD | Therapist Matching Specialist"
+  navigation:
+    - text: "About"
+      href: "#about"
+    - text: "Service"
+      href: "#service"
+    - text: "Testimonials"
+      href: "#testimonials"
+    - text: "Contact"
+      href: "#contact"
+
+hero:
+  title: "Find Your Perfect Therapist Match"
+  description: "Expert guidance from a Harvard-affiliated clinical psychologist to connect you with the right therapist for your unique needs."
+  featured_quote:
+    text: "Finding the right therapist can be overwhelming, but Sarah made the process so much easier. Her guidance gave me the push I needed to start my therapy journey."
+    author: "Haley S., Philadelphia"
+  cta_button:
+    text: "Find Your Perfect Match"
+    href: "#contact"
+  image:
+    src: "images/coe_odess_sarah_headshot.jpg"
+    alt: "Dr. Sarah Coe-Odess"
+
+about:
+  title: "About Me"
+  content:
+    - "As a licensed clinical psychologist at Massachusetts General Hospital and instructor at Harvard Medical School, I bring deep expertise in understanding therapeutic approaches and matching clients with the right care. My extensive experience in cognitive behavioral therapy (CBT), exposure therapy (ERP), and other evidence-based treatments, combined with my research in digital mental health interventions, gives me unique insight into what makes therapy truly effective."
+    - "Through my work supervising clinicians and developing innovative mental health solutions, I've gained a comprehensive understanding of different therapeutic styles and approaches. This expertise allows me to thoughtfully match you with a therapist whose methods and personality will best serve your specific needs."
+  credentials:
+    title: "Specialized Training & Expertise"
+    items:
+      - icon: "certificate"
+        title: "Specialized OCD Treatment"
+        description: "Verified provider with the International OCD Foundation, specializing in CBT, ACT, and Exposure Response Prevention (ERP)"
+      - icon: "user-md"
+        title: "Clinical Experience"
+        description: "Harvard Medical School instructor and clinician at Massachusetts General Hospital's Center for OCD and Related Disorders"
+      - icon: "graduation-cap"
+        title: "Academic Background"
+        description: "PhD from University of Virginia, with post-doctoral fellowship at MGH/Harvard Medical School focusing on OCD Spectrum Disorders"
+    trust_badges:
+      - text: "Verified IOCDF Provider"
+        icon: "certificate"
+        link: "https://iocdf.org/providers/coe-odess-sarah/"
+
+service:
+  title: "My Service"
+  description: "I offer a personalized therapist matching service that takes the stress out of finding the right mental health professional. Through careful consideration of your specific needs, preferences, and circumstances, I connect you with therapists who are the best fit for your journey."
+  features:
+    - icon: "handshake"
+      title: "Expert Matching"
+      description: "Personalized recommendations from a Harvard-affiliated psychologist who understands both sides of the therapeutic relationship"
+    - icon: "brain"
+      title: "Evidence-Based Approach"
+      description: "Matching process informed by clinical expertise and research in therapeutic effectiveness"
+    - icon: "heart"
+      title: "Simplified Process"
+      description: "Skip the overwhelming search and connect directly with therapists who match your specific needs"
+
+testimonials:
+  title: "Client Experiences"
+  items:
+    - quote: "Sarah helped simplify that for me and provided suggestions for therapists that suited my specific needs. I'd never seen one prior and it was stressful trying to figure out where to start."
+      author: "Heather D."
+    - quote: "In a time when my head was in a fog and I was already so overwhelmed, Sarah helped me actually follow through and get the support I needed by making it so easy."
+      author: "Dorothy M."
+    - quote: "Sarah was instrumental in helping me find a mental health provider when I felt overwhelmed by the dysfunctional methods for finding care providers. I was quickly paired with a provider who met me where I was at."
+      author: "Abby A."
+
+contact:
+  title: "Get Started"
+  description: "Ready to find your perfect therapist match? Contact me to discuss your needs and learn more about my service."
+  info:
+    email: "drsarahcoe@gmail.com"
+    availability: "Available for virtual consultations worldwide"
+  social_links:
+    - platform: "YouTube"
+      icon: "youtube"
+      url: "https://www.youtube.com/@thesarahpist"
+      text: "YouTube Channel"
+    - platform: "Instagram"
+      icon: "instagram"
+      url: "https://www.instagram.com/the_sarahpist/"
+      text: "Instagram"
+
+newsletter:
+  title: "Well-Being Book Club"
+  description: "Join our community of readers exploring mental health, personal growth, and well-being through carefully curated books."
+  form_url: "https://docs.google.com/forms/d/1t5pDzi0cM7b6nrjC_JzTI_ZY3KI4LI_O_aXdIjAIHe0/viewform?embedded=true"
+
+footer:
+  copyright: "© 2024 Dr. Sarah Coe-Odess. All rights reserved." 
