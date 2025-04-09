@@ -48,7 +48,7 @@ about:
 
 service:
   title: "My Service"
-  description: "I offer a personalized therapist matching service that takes the stress out of finding the right mental health professional. Through careful consideration of your specific needs, preferences, and circumstances, I connect you with therapists who are the best fit for your journey."
+  description: "I offer a personalized therapist matching service to take the stress out of finding the right mental health professional. Through careful consideration of your specific needs, preferences, and circumstances, I connect you with therapists who are the best fit for your journey."
   features:
     - icon: "handshake"
       title: "Expert Matching"
