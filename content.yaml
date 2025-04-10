@@ -1,6 +1,6 @@
 header:
-  title: "Dr. Sarah Coe-Odess"
-  subtitle: "PhD | Therapist Matching Specialist"
+  title: "The Sarahpist"
+  subtitle: "Dr. Sarah Coe-Odess, Clinical Psychologist | Therapist Matching Specialist"
   navigation:
     - text: "About"
       href: "#about"
@@ -27,20 +27,20 @@ hero:
 about:
   title: "About Me"
   content:
-    - "As a licensed clinical psychologist at Massachusetts General Hospital and instructor at Harvard Medical School, I bring deep expertise in understanding therapeutic approaches and matching clients with the right care. My extensive experience in cognitive behavioral therapy (CBT), exposure therapy (ERP), and other evidence-based treatments, combined with my research in digital mental health interventions, gives me unique insight into what makes therapy truly effective."
-    - "Through my work supervising clinicians and developing innovative mental health solutions, I've gained a comprehensive understanding of different therapeutic styles and approaches. This expertise allows me to thoughtfully match you with a therapist whose methods and personality will best serve your specific needs."
+    - "As a licensed clinical psychologist at Massachusetts General Hospital and an instructor at Harvard Medical School, I bring expertise in understanding therapeutic approaches, diagnostic complexity, and financial considerations that are essential in matching clients with the right care. My extensive experience in cognitive behavioral therapy (CBT), exposure and response prevention (ERP) therapy, and other evidence-based treatments (e.g., ACT, DBT), combined with my research in digital mental health interventions, gives me unique insight into what makes therapy truly effective."
+    - "Through my work seeing clients at MGH and in private practice, developing innovative mental health solutions, and supervising clinicians, I've gained a comprehensive understanding factors to consider in making a therapy match successful. This extensive experience allows me to match you thoughtfully with a therapist whose methods and personality will best serve your specific needs."
   credentials:
     title: "Specialized Training & Expertise"
     items:
       - icon: "certificate"
         title: "Specialized OCD Treatment"
-        description: "Verified provider with the International OCD Foundation, specializing in CBT, ACT, and Exposure Response Prevention (ERP)"
+        description: "Verified provider with the International OCD Foundation, specializing in CBT, ACT, and Exposure Response Prevention (ERP) for OCD and anxiety disorders for children, adolescents, and adults"
       - icon: "user-md"
         title: "Clinical Experience"
-        description: "Harvard Medical School instructor and clinician at Massachusetts General Hospital's Center for OCD and Related Disorders"
+        description: "Harvard Medical School instructor and clinician at Massachusetts General Hospital's Center for OCD and Related Disorders, owner of private practice in Cambridge, MA"
       - icon: "graduation-cap"
         title: "Academic Background"
-        description: "PhD from University of Virginia, with post-doctoral fellowship at MGH/Harvard Medical School focusing on OCD Spectrum Disorders"
+        description: "PhD from University of Virginia, with post-doctoral fellowship at MGH/Harvard Medical School"
     trust_badges:
       - text: "Verified IOCDF Provider"
         icon: "certificate"
@@ -48,7 +48,7 @@ about:
 
 service:
   title: "My Service"
-  description: "I offer a personalized therapist matching service to take the stress out of finding the right mental health professional. Through careful consideration of your specific needs, preferences, and circumstances, I connect you with therapists who are the best fit for your journey."
+  description: "I offer a personalized therapist matching service to take the stress out of finding the right mental health professional. Through careful consideration of your specific needs, preferences, and circumstances, I connect you with therapists who are the best fit for your journey. To date, I have successfully matched over 1,500 individuals in the United States and Canada."
   features:
     - icon: "handshake"
       title: "Expert Matching"
@@ -88,7 +88,7 @@ contact:
 
 newsletter:
   title: "Well-Being Book Club"
-  description: "Join our community of readers exploring mental health, personal growth, and well-being through carefully curated books."
+  description: "Join our community of readers exploring mental health, personal growth, and well-being through carefully curated books and live discussions with best-selling authors and experts."
   form_url: "https://docs.google.com/forms/d/1t5pDzi0cM7b6nrjC_JzTI_ZY3KI4LI_O_aXdIjAIHe0/viewform?embedded=true"
 
 footer:
