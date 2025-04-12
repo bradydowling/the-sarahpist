@@ -26,6 +26,7 @@ The website uses a YAML-based content management system that makes it easy to up
 3. Edit the text, links, or other content as needed
 4. Save the file
 5. Refresh the website to see your changes
+6. Run `yarn generate` to update the HTML file with the changes from the YAML file
 
 ### Content Structure
 
@@ -92,4 +93,4 @@ You can use any of these methods to run a local server:
 
 ## License
 
-© 2024 Dr. Sarah Coe-Odess. All rights reserved.
+© 2025 Dr. Sarah Coe-Odess. All rights reserved.

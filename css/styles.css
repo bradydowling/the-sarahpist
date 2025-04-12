@@ -212,6 +212,25 @@ section h2 {
   text-align: center;
 }
 
+#about {
+  background-color: var(--white);
+}
+
+#about p {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  padding: 1.5rem;
+  background-color: var(--light-bg);
+  border-radius: var(--border-radius);
+  transition: transform 0.3s ease;
+}
+
+#about p:hover {
+  transform: translateY(-2px);
+}
+
 /* Service features */
 .service-features {
   display: grid;
