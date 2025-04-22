@@ -88,7 +88,11 @@ contact:
 
   newsletter:
   title: "Increasing accessibility to and affordability of therapy"
-  form_url: "https://form.typeform.com/to/Smv62wG3/viewform?embedded=true"    
+  form_url: "https://form.typeform.com/to/Smv62wG3/viewform?embedded=true"  
+
+ newsletter:
+  title: "Increasing accessibility to and affordability of therapy"
+  form_url: "<div data-tf-live="01JSDEWKQTE13PRYPSDQA205BF"></div><script src="//embed.typeform.com/next/embed.js"></script>"  
 
 newsletter:
   title: "Well-Being Book Club"
