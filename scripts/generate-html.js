@@ -150,7 +150,6 @@ document.querySelector("#newsletter h2").textContent =
   yamlContent.newsletter.title;
 document.querySelector("#newsletter p").textContent =
   yamlContent.newsletter.description;
-document.querySelector(".google-form").src = yamlContent.newsletter.form_url;
 
 // Update footer
 document.querySelector("footer p").textContent = yamlContent.footer.copyright;

@@ -86,14 +86,13 @@ contact:
       url: "https://www.instagram.com/the_sarahpist/"
       text: "Instagram"
 
- newsletter:
+accessibility_newsletter:
   title: "Increasing accessibility to and affordability of therapy"
-  form_url: "https://docs.google.com/forms/d/e/1FAIpQLSdFcrhth2rqreIz6p6ItrvjqeIwVM4TLzfhE5Ui_SPbFOZ8cQ/viewform??embedded=true
-  
+  form_url: "https://docs.google.com/forms/d/e/1FAIpQLSdFcrhth2rqreIz6p6ItrvjqeIwVM4TLzfhE5Ui_SPbFOZ8cQ/viewform??embedded=true"
+
 newsletter:
   title: "Well-Being Book Club"
   description: "Join our community of readers exploring mental health, personal growth, and well-being through carefully curated books and live discussions with best-selling authors and experts."
-  form_url: "https://docs.google.com/forms/d/1t5pDzi0cM7b6nrjC_JzTI_ZY3KI4LI_O_aXdIjAIHe0/viewform?embedded=true"
 
 footer:
   copyright: "© 2025 Dr. Sarah Coe-Odess. All rights reserved." 
