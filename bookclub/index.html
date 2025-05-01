@@ -12,6 +12,7 @@
 
     <style type="text/css">
       @import url("https://assets.mlcdn.com/fonts.css?version=1746091");
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
 
       /* LOADER */
       .ml-form-embedSubmitLoad {
@@ -73,7 +74,7 @@
         letter-spacing: normal !important;
       }
       #mlb2-25470445.ml-form-embedContainer .ml-form-embedWrapper {
-        background-color: #f6f6f6;
+        background-color: #ffffff;
         border-width: 0px;
         border-color: transparent;
         border-radius: 4px;
@@ -248,7 +249,7 @@
       /* Page specific styles */
       body {
         font-family: "Open Sans", Arial, Helvetica, sans-serif;
-        line-height: 1.6;
+        line-height: 1.8;
         margin: 0;
         padding: 0;
         background-color: #f8f8f8;
@@ -258,48 +259,113 @@
       .container {
         max-width: 800px;
         margin: 0 auto;
-        padding: 40px 20px;
+        padding: 0 20px;
         text-align: center;
       }
 
-      h1 {
-        color: #333;
-        margin-bottom: 10px;
-      }
-
-      p {
-        margin-bottom: 30px;
-      }
-
-      .form-container {
-        max-width: 500px;
-        margin: 0 auto;
-        background-color: #fff;
-        border-radius: 8px;
-        padding: 20px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      }
-
-      footer {
-        margin-top: 50px;
-        font-size: 14px;
-        color: #777;
+      /* Header Styles */
+      .header {
+        background: #ffffff;
+        padding: 60px 20px;
+        margin-bottom: 40px;
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.03);
       }
 
       .logo {
         font-size: 24px;
         font-weight: bold;
-        margin-bottom: 30px;
+        margin-bottom: 10px;
         color: #444;
+      }
+
+      h1 {
+        color: #333;
+        margin: 0 0 15px 0;
+        font-size: 2.5rem;
+        font-weight: 700;
+      }
+
+      .subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+        color: #555;
+        font-weight: 600;
+      }
+
+      p {
+        margin-bottom: 30px;
+        font-size: 1rem;
+      }
+
+      .description {
+        max-width: 600px;
+        margin: 0 auto 40px auto;
+        line-height: 1.8;
+      }
+
+      .form-container {
+        max-width: 500px;
+        margin: 0 auto 60px auto;
+        background-color: #fff;
+        border-radius: 8px;
+        padding: 30px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Custom styled button */
+      .primary {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 12px 24px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        width: 100%;
+      }
+
+      .primary:hover {
+        background-color: #3d8b40;
+        transform: translateY(-2px);
+      }
+
+      .privacy-note {
+        font-size: 12px;
+        color: #777;
+        margin-top: 15px;
+        text-align: center;
+      }
+
+      footer {
+        margin-top: 50px;
+        padding: 20px 0;
+        font-size: 14px;
+        color: #777;
+      }
+
+      footer a {
+        color: #555;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
       }
     </style>
   </head>
   <body>
-    <div class="container">
-      <div class="logo">The Sarahpist</div>
+    <div class="header">
+      <div class="container">
+        <div class="logo">The Sarahpist</div>
+        <h1>Join the Well-Being Book Club</h1>
+      </div>
+    </div>
 
-      <h1>Well-Being Book Club</h1>
-      <p>
+    <div class="container">
+      <p class="description">
         Join our community of readers exploring mental health, personal growth,
         and well-being through carefully curated books and live discussions with
         best-selling authors and experts.
@@ -332,7 +398,7 @@
                           class="form-control"
                           data-inputmask=""
                           name="fields[email]"
-                          placeholder="Email"
+                          placeholder="Enter your email to get started"
                           autocomplete="email"
                         />
                       </div>
@@ -353,6 +419,7 @@
                   </div>
                   <input type="hidden" name="anticsrf" value="true" />
                 </form>
+                <div class="privacy-note">No spam. Unsubscribe anytime.</div>
               </div>
               <div
                 class="ml-form-successBody row-success"
