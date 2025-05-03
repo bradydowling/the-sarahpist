@@ -26,6 +26,8 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: 100%;
   max-width: 300px;
+  display: flex;
+  flex-direction: column;
 }
 
 .video-card:hover {
@@ -46,6 +48,13 @@
   object-fit: cover;
 }
 
+.video-thumbnail a {
+  display: block;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+
 .play-icon {
   position: absolute;
   top: 50%;
@@ -55,10 +64,19 @@
   font-size: 48px;
   opacity: 0.9;
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.video-thumbnail:hover .play-icon {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.1);
 }
 
 .video-info {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .video-title {
@@ -73,18 +91,21 @@
   color: #666;
   margin-bottom: 20px;
   line-height: 1.6;
+  flex-grow: 1;
 }
 
 .watch-button {
-  display: inline-block;
+  display: block;
   background-color: #4caf50;
   color: white;
-  padding: 8px 16px;
+  padding: 10px 16px;
   border-radius: 4px;
   text-decoration: none;
   font-weight: 600;
   font-size: 0.9rem;
   transition: background-color 0.3s ease;
+  align-self: stretch;
+  text-align: center;
 }
 
 .watch-button:hover {
@@ -220,4 +241,30 @@ footer a {
 
 footer a:hover {
   text-decoration: underline;
+}
+
+/* Show More Button */
+.show-more-container {
+  margin: 40px auto 0;
+  text-align: center;
+}
+
+.show-more-button {
+  display: inline-block;
+  background-color: transparent;
+  color: #555;
+  padding: 12px 28px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  transition: background-color 0.3s ease, transform 0.2s ease,
+    border-color 0.3s ease;
+}
+
+.show-more-button:hover {
+  background-color: #f5f5f5;
+  border-color: #999;
+  transform: translateY(-2px);
 }
