@@ -10,6 +10,8 @@ header:
       href: "#testimonials"
     - text: "Contact"
       href: "#contact"
+    - text: "Book Club"
+      href: "/bookclub"
 
 hero:
   title: "Find Your Perfect Therapist Match"
