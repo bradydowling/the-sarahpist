@@ -106,6 +106,29 @@ nav a:hover::after {
   transform-origin: left;
 }
 
+/* Navigation CTA button */
+nav .cta-button {
+  background-color: var(--accent-color);
+  color: var(--white);
+  padding: 10px 20px;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav .cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  background-color: #00b388;
+}
+
+/* Remove the underline effect for the CTA button */
+nav .cta-button::after {
+  display: none;
+}
+
 /* Hero section */
 #hero {
   padding: 8rem 2rem 6rem;

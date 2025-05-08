@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Free Resources | Dr. Sarah Coe-Odess</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <style type="text/css">
+      @import url("https://assets.mlcdn.com/fonts.css?version=1746091");
+    </style>
+    <style>
+      .resources-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      .resource-card {
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2.5rem;
+        padding: 2.5rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .resource-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+      }
+
+      .resource-card h2 {
+        color: var(--primary-color);
+        margin-bottom: 1.2rem;
+        display: flex;
+        align-items: center;
+        font-size: 1.8rem;
+      }
+
+      .resource-card h2 i {
+        margin-right: 0.8rem;
+        color: var(--accent-color);
+      }
+
+      .resource-card p {
+        color: #444;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+        font-size: 1.1rem;
+      }
+
+      /* Form Styling (copied from homepage) */
+      /* LOADER */
+      .ml-form-embedSubmitLoad {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+      }
+
+      .ml-form-embedSubmitLoad:after {
+        content: " ";
+        display: block;
+        width: 11px;
+        height: 11px;
+        margin: 1px;
+        border-radius: 50%;
+        border: 4px solid #fff;
+        border-color: #ffffff #ffffff #ffffff transparent;
+        animation: ml-form-embedSubmitLoad 1.2s linear infinite;
+      }
+      @keyframes ml-form-embedSubmitLoad {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .ml-form-embedContainer {
+        box-sizing: border-box;
+        display: table;
+        margin: 0 auto;
+        position: static;
+        width: 100% !important;
+      }
+      .ml-form-embedContainer h4,
+      .ml-form-embedContainer p,
+      .ml-form-embedContainer span,
+      .ml-form-embedContainer button {
+        text-transform: none !important;
+        letter-spacing: normal !important;
+      }
+      .ml-form-embedContainer .ml-form-embedWrapper {
+        background-color: #f6f6f6;
+        border-width: 0px;
+        border-color: transparent;
+        border-radius: 4px;
+        border-style: solid;
+        box-sizing: border-box;
+        display: inline-block !important;
+        margin: 0;
+        padding: 0;
+        position: relative;
+      }
+      .ml-form-embedContainer .ml-form-embedWrapper.embedPopup,
+      .ml-form-embedContainer .ml-form-embedWrapper.embedDefault {
+        width: 400px;
+      }
+      .ml-form-embedContainer .ml-form-embedWrapper.embedForm {
+        max-width: 400px;
+        width: 100%;
+      }
+      .ml-form-embedContainer .ml-form-align-left {
+        text-align: left;
+      }
+      .ml-form-embedContainer .ml-form-align-center {
+        text-align: center;
+      }
+      .ml-form-embedContainer .ml-form-align-default {
+        display: table-cell !important;
+        vertical-align: middle !important;
+        text-align: center !important;
+      }
+      .ml-form-embedContainer .ml-form-align-right {
+        text-align: right;
+      }
+
+      .ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody,
+      .ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody {
+        padding: 10px 15px 0 15px;
+      }
+
+      .ml-form-embedContainer
+        .ml-form-embedWrapper
+        .ml-form-embedBody
+        .ml-form-embedContent,
+      .ml-form-embedContainer
+        .ml-form-embedWrapper
+        .ml-form-successBody
+        .ml-form-successContent {
+        text-align: left;
+        margin: 0 0 10px 0;
+      }
+
+      .ml-form-embedContainer
+        .ml-form-embedWrapper
+        .ml-form-embedBody
+        .ml-form-formContent,
+      .ml-form-embedContainer
+        .ml-form-embedWrapper
+        .ml-form-embedBody
+        .ml-form-checkboxRow {
+        margin: 0 0 10px 0;
+        width: 100%;
+      }
+
+      .ml-form-embedContainer
+        .ml-form-embedWrapper
+        .ml-form-embedBody
+        .ml-form-fieldRow {
+        margin: 0 0 10px 0;
+        width: 100%;
+      }
+
+      .ml-form-embedContainer
+        .ml-form-embedWrapper
+        .ml-form-embedBody
+        .ml-form-fieldRow.ml-last-item {
+        margin: 0;
+      }
+
+      .ml-form-embedContainer
+        .ml-form-embedWrapper
+        .ml-form-embedBody
+        .ml-form-fieldRow
+        input {
+        background-color: #ffffff !important;
+        color: #333333 !important;
+        border-color: #cccccc;
+        border-radius: 4px !important;
+        border-style: solid !important;
+        border-width: 1px !important;
+        font-family: "Open Sans", Arial, Helvetica, sans-serif;
+        font-size: 14px !important;
+        height: auto;
+        line-height: 21px !important;
+        margin-bottom: 0;
+        margin-top: 0;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 10px 10px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        max-width: 100% !important;
+      }
+
+      .ml-form-embedContainer
+        .ml-form-embedWrapper
+        .ml-form-embedBody
+        .ml-form-fieldRow
+        input::-webkit-input-placeholder,
+      .ml-form-embedContainer
+        .ml-form-embedWrapper
+        .ml-form-embedBody
+        .ml-form-horizontalRow
+        input::-webkit-input-placeholder {
+        color: #333333;
+      }
+
+      .ml-form-embedSubmit button {
+        background-color: var(--accent-color) !important;
+        border: none !important;
+        border-radius: var(--border-radius) !important;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+        color: var(--white) !important;
+        cursor: pointer !important;
+        font-family: "Open Sans", Arial, Helvetica, sans-serif !important;
+        font-size: 1rem !important;
+        font-weight: 600 !important;
+        line-height: 1.5 !important;
+        padding: 10px 20px !important;
+        width: 100% !important;
+        transition: all 0.3s ease !important;
+      }
+
+      .ml-form-embedSubmit button:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15) !important;
+        background-color: #00b388 !important;
+      }
+
+      /* Success Message Styling */
+      .ml-form-successBody {
+        background-color: #f6f6f6;
+        border-radius: 8px;
+        padding: 25px !important;
+        border-left: 4px solid var(--accent-color);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .ml-form-successContent h4 {
+        color: var(--primary-color) !important;
+        font-size: 1.5rem !important;
+        margin-bottom: 1rem !important;
+        font-weight: 600 !important;
+      }
+
+      .ml-form-successContent p {
+        margin-bottom: 1.2rem !important;
+        color: #444;
+        line-height: 1.6;
+      }
+
+      .download-link {
+        display: inline-block;
+        padding: 12px 25px;
+        background-color: var(--accent-color);
+        color: var(--white);
+        text-decoration: none;
+        border-radius: var(--border-radius);
+        font-weight: 600;
+        transition: all 0.3s ease;
+        margin-top: 0.8rem;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .download-link:hover {
+        background-color: #00b388;
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      .privacy-note {
+        font-size: 0.9rem;
+        color: #666;
+      }
+
+      /* New CTA button style */
+      .cta-button {
+        background-color: var(--accent-color);
+        color: var(--white);
+        padding: 10px 20px;
+        border-radius: var(--border-radius);
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .cta-button:hover {
+        background-color: #00b388;
+        transform: translateY(-2px);
+      }
+
+      nav ul {
+        display: flex;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-content">
+        <div class="header-left">
+          <h1>The Sarahpist</h1>
+          <p class="subtitle">Free Resources</p>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="index.html">Free Resources</a></li>
+            <li><a href="../bookclub/index.html">Book Club</a></li>
+            <li>
+              <a href="../index.html#contact" class="cta-button"
+                >Book a Consultation</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="resources-container">
+      <h1 class="main-title">Free Resources</h1>
+      <p class="description">
+        Access our collection of free resources designed to support your mental
+        health and personal growth journey.
+      </p>
+
+      <!-- Resource 1 -->
+      <div class="resource-card">
+        <h2><i class="fas fa-file-invoice-dollar"></i> Superbill Guide</h2>
+        <p>
+          Get reimbursed for out-of-network therapy with our simple step-by-step
+          guide to submitting superbills to your insurance.
+        </p>
+        <div class="form-container">
+          <div
+            id="mlb2-25754879"
+            class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-25754879"
+          >
+            <div class="ml-form-align-center">
+              <div class="ml-form-embedWrapper embedForm">
+                <div
+                  class="ml-form-embedBody ml-form-embedBodyDefault row-form"
+                >
+                  <form
+                    class="ml-block-form"
+                    action="https://assets.mailerlite.com/jsonp/26519/forms/153856317496231161/subscribe"
+                    data-code=""
+                    method="post"
+                    target="_blank"
+                  >
+                    <div class="ml-form-formContent">
+                      <div class="ml-form-fieldRow ml-last-item">
+                        <div
+                          class="ml-field-group ml-field-email ml-validate-email ml-validate-required"
+                        >
+                          <input
+                            aria-label="email"
+                            aria-required="true"
+                            type="email"
+                            class="form-control"
+                            data-inputmask=""
+                            name="fields[email]"
+                            placeholder="Enter your email to get the guide"
+                            autocomplete="email"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <input type="hidden" name="ml-submit" value="1" />
+                    <div class="ml-form-embedSubmit">
+                      <button type="submit" class="primary">
+                        Get My Guide
+                      </button>
+                      <button
+                        disabled="disabled"
+                        style="display: none"
+                        type="button"
+                        class="loading"
+                      >
+                        <div class="ml-form-embedSubmitLoad"></div>
+                        <span class="sr-only">Loading...</span>
+                      </button>
+                    </div>
+                    <input type="hidden" name="anticsrf" value="true" />
+                  </form>
+                </div>
+                <div
+                  class="ml-form-successBody row-success"
+                  style="display: none"
+                >
+                  <div class="ml-form-successContent">
+                    <h4>Thank you for requesting the Superbill Guide!</h4>
+                    <p>
+                      Your guide to navigating insurance reimbursements is ready
+                      to download. This step-by-step resource will help you get
+                      the most from your insurance coverage.
+                    </p>
+                    <p>
+                      <a
+                        href="superbill-guide.pdf"
+                        class="download-link"
+                        download
+                        >Download Superbill Guide</a
+                      >
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="privacy-note"
+                  style="text-align: center; margin-top: 1rem"
+                >
+                  No spam. Unsubscribe anytime.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Resource 2 -->
+      <div class="resource-card">
+        <h2><i class="fas fa-brain"></i> Types of Therapy Guide</h2>
+        <p>
+          Explore different therapeutic approaches to find what works best for
+          you. This comprehensive guide explains CBT, psychodynamic, humanistic,
+          and other common therapy types in simple terms.
+        </p>
+        <div
+          id="mlb2-25470446"
+          class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-25470446"
+        >
+          <div class="ml-form-align-center">
+            <div class="ml-form-embedWrapper embedForm">
+              <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+                <form
+                  class="ml-block-form"
+                  action="https://assets.mailerlite.com/jsonp/26519/forms/153207660460639323/subscribe"
+                  data-code=""
+                  method="post"
+                  target="_blank"
+                >
+                  <div class="ml-form-formContent">
+                    <div class="ml-form-fieldRow ml-last-item">
+                      <div
+                        class="ml-field-group ml-field-email ml-validate-email ml-validate-required"
+                      >
+                        <input
+                          aria-label="email"
+                          aria-required="true"
+                          type="email"
+                          class="form-control"
+                          data-inputmask=""
+                          name="fields[email]"
+                          placeholder="Enter your email to get the guide"
+                          autocomplete="email"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <input type="hidden" name="ml-submit" value="1" />
+                  <div class="ml-form-embedSubmit">
+                    <button type="submit" class="primary">
+                      Get Therapy Guide
+                    </button>
+                    <button
+                      disabled="disabled"
+                      style="display: none"
+                      type="button"
+                      class="loading"
+                    >
+                      <div class="ml-form-embedSubmitLoad"></div>
+                      <span class="sr-only">Loading...</span>
+                    </button>
+                  </div>
+                  <input type="hidden" name="anticsrf" value="true" />
+                </form>
+              </div>
+              <div
+                class="ml-form-successBody row-success"
+                style="display: none"
+              >
+                <div class="ml-form-successContent">
+                  <h4>Your Therapy Types Guide is Ready!</h4>
+                  <p>
+                    Thank you for your interest in learning about different
+                    therapy approaches. This guide will help you understand
+                    which type of therapy might be right for you.
+                  </p>
+                  <p>
+                    <a
+                      href="therapy-types-guide.pdf"
+                      class="download-link"
+                      download
+                      >Download Therapy Types Guide</a
+                    >
+                  </p>
+                </div>
+              </div>
+              <div
+                class="privacy-note"
+                style="text-align: center; margin-top: 1rem"
+              >
+                No spam. Unsubscribe anytime.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Resource 3 -->
+      <div class="resource-card">
+        <h2>
+          <i class="fas fa-hand-holding-usd"></i> Options to Make Therapy More
+          Affordable
+        </h2>
+        <p>
+          Discover practical strategies to access quality mental health care
+          without breaking the bank. This guide covers sliding scale fees,
+          insurance options, community resources, and other approaches to make
+          therapy more financially accessible.
+        </p>
+        <div
+          id="mlb2-25470447"
+          class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-25470447"
+        >
+          <div class="ml-form-align-center">
+            <div class="ml-form-embedWrapper embedForm">
+              <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+                <form
+                  class="ml-block-form"
+                  action="https://assets.mailerlite.com/jsonp/26519/forms/153207660460639323/subscribe"
+                  data-code=""
+                  method="post"
+                  target="_blank"
+                >
+                  <div class="ml-form-formContent">
+                    <div class="ml-form-fieldRow ml-last-item">
+                      <div
+                        class="ml-field-group ml-field-email ml-validate-email ml-validate-required"
+                      >
+                        <input
+                          aria-label="email"
+                          aria-required="true"
+                          type="email"
+                          class="form-control"
+                          data-inputmask=""
+                          name="fields[email]"
+                          placeholder="Enter your email to get the guide"
+                          autocomplete="email"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <input type="hidden" name="ml-submit" value="1" />
+                  <div class="ml-form-embedSubmit">
+                    <button type="submit" class="primary">
+                      Get Affordability Guide
+                    </button>
+                    <button
+                      disabled="disabled"
+                      style="display: none"
+                      type="button"
+                      class="loading"
+                    >
+                      <div class="ml-form-embedSubmitLoad"></div>
+                      <span class="sr-only">Loading...</span>
+                    </button>
+                  </div>
+                  <input type="hidden" name="anticsrf" value="true" />
+                </form>
+              </div>
+              <div
+                class="ml-form-successBody row-success"
+                style="display: none"
+              >
+                <div class="ml-form-successContent">
+                  <h4>Great! Your Affordability Guide is Ready</h4>
+                  <p>
+                    Thank you for taking steps to make mental health care more
+                    accessible. This guide contains practical tips and resources
+                    to help reduce the cost of therapy.
+                  </p>
+                  <p>
+                    <a
+                      href="affordable-therapy-guide.pdf"
+                      class="download-link"
+                      download
+                      >Download Affordability Guide</a
+                    >
+                  </p>
+                </div>
+              </div>
+              <div
+                class="privacy-note"
+                style="text-align: center; margin-top: 1rem"
+              >
+                No spam. Unsubscribe anytime.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <p>© 2025 Dr. Sarah Coe-Odess. All rights reserved.</p>
+        <p><a href="../index.html">Return to Home</a></p>
+      </footer>
+    </div>
+
+    <script
+      src="https://groot.mailerlite.com/js/w/webforms.min.js?v176e10baa5e7ed80d35ae235be3d5024"
+      type="text/javascript"
+    ></script>
+    <script type="text/javascript">
+      function ml_webform_success_25754879() {
+        var $ = ml_jQuery || jQuery;
+        $(".ml-subscribe-form-25754879 .row-form").hide();
+        $(".ml-subscribe-form-25754879 .row-success").show();
+      }
+
+      function ml_webform_success_25470446() {
+        var $ = ml_jQuery || jQuery;
+        $(".ml-subscribe-form-25470446 .row-form").hide();
+        $(".ml-subscribe-form-25470446 .row-success").show();
+      }
+
+      function ml_webform_success_25470447() {
+        var $ = ml_jQuery || jQuery;
+        $(".ml-subscribe-form-25470447 .row-form").hide();
+        $(".ml-subscribe-form-25470447 .row-success").show();
+      }
+    </script>
+  </body>
+</html>

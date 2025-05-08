@@ -24,7 +24,10 @@ function renderContent(content) {
   // Navigation
   const navList = document.querySelector("nav ul");
   navList.innerHTML = content.header.navigation
-    .map((item) => `<li><a href="${item.href}">${item.text}</a></li>`)
+    .map((item) => {
+      const className = item.is_cta ? 'class="cta-button"' : "";
+      return `<li><a href="${item.href}" ${className}>${item.text}</a></li>`;
+    })
     .join("");
 
   // Hero section

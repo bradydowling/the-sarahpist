@@ -189,6 +189,7 @@ nav ul {
   list-style: none;
   padding: 0;
   margin: 0;
+  align-items: center;
 }
 
 nav li {
@@ -204,6 +205,25 @@ nav a {
 
 nav a:hover {
   color: #4caf50;
+}
+
+/* Navigation CTA button */
+nav .cta-button {
+  background-color: #00cc99;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav .cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  background-color: #00b388;
+  color: #ffffff;
 }
 
 @media (max-width: 768px) {

@@ -2,16 +2,15 @@ header:
   title: "The Sarahpist"
   subtitle: "Dr. Sarah Coe-Odess, Clinical Psychologist | Therapist Matching Specialist"
   navigation:
-    - text: "About"
-      href: "#about"
-    - text: "Service"
-      href: "#service"
-    - text: "Testimonials"
-      href: "#testimonials"
-    - text: "Contact"
-      href: "#contact"
+    - text: "Home"
+      href: "index.html"
+    - text: "Free Resources"
+      href: "/free-resources"
     - text: "Book Club"
       href: "/bookclub"
+    - text: "Book a Consultation"
+      href: "#contact"
+      is_cta: true
 
 hero:
   title: "Find Your Perfect Therapist Match"
