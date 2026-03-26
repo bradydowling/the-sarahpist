@@ -12,14 +12,27 @@ async function loadContent() {
   }
 }
 
+function setText(selector, value) {
+  const element = document.querySelector(selector);
+  if (element) {
+    element.textContent = value;
+  }
+}
+
+function setAttribute(selector, attribute, value) {
+  const element = document.querySelector(selector);
+  if (element) {
+    element.setAttribute(attribute, value);
+  }
+}
+
 // Function to render content into the HTML
 function renderContent(content) {
   if (!content) return;
 
   // Header
-  document.querySelector(".header-left h1").textContent = content.header.title;
-  document.querySelector(".header-left .subtitle").textContent =
-    content.header.subtitle;
+  setText(".header-left h1", content.header.title);
+  setText(".header-left .subtitle", content.header.subtitle);
 
   // Navigation
   const navList = document.querySelector("nav ul");
@@ -31,21 +44,17 @@ function renderContent(content) {
     .join("");
 
   // Hero section
-  document.querySelector("#hero h2").textContent = content.hero.title;
-  document.querySelector("#hero p").textContent = content.hero.description;
-  document.querySelector(".featured-quote p").textContent =
-    content.hero.featured_quote.text;
-  document.querySelector(
-    ".featured-quote cite"
-  ).textContent = `— ${content.hero.featured_quote.author}`;
-  document.querySelector(".cta-button").textContent =
-    content.hero.cta_button.text;
-  document.querySelector(".cta-button").href = content.hero.cta_button.href;
-  document.querySelector(".hero-image img").src = content.hero.image.src;
-  document.querySelector(".hero-image img").alt = content.hero.image.alt;
+  setText("#hero h2", content.hero.title);
+  setText("#hero .hero-text > p", content.hero.description);
+  setText(".featured-quote p", content.hero.featured_quote.text);
+  setText(".featured-quote cite", `— ${content.hero.featured_quote.author}`);
+  setText("#hero .hero-text .cta-button", content.hero.cta_button.text);
+  setAttribute("#hero .hero-text .cta-button", "href", content.hero.cta_button.href);
+  setAttribute(".hero-image img", "src", content.hero.image.src);
+  setAttribute(".hero-image img", "alt", content.hero.image.alt);
 
   // About section
-  document.querySelector("#about h2").textContent = content.about.title;
+  setText("#about h2", content.about.title);
   const aboutContent = document.querySelector("#about");
   aboutContent.innerHTML = `
         <h2>${content.about.title}</h2>
@@ -69,7 +78,7 @@ function renderContent(content) {
                 ${content.about.credentials.trust_badges
                   .map(
                     (badge) => `
-                    <a href="${badge.link}" target="_blank" class="badge-link">
+                    <a href="${badge.link}" target="_blank" rel="noopener noreferrer" class="badge-link">
                         <div class="badge-icon">
                             <i class="fas fa-${badge.icon}"></i>
                             <i class="fas fa-check badge-check"></i>
@@ -84,9 +93,8 @@ function renderContent(content) {
     `;
 
   // Service section
-  document.querySelector("#service h2").textContent = content.service.title;
-  document.querySelector("#service p").textContent =
-    content.service.description;
+  setText("#service h2", content.service.title);
+  setText("#service > p", content.service.description);
   const serviceFeatures = document.querySelector(".service-features");
   serviceFeatures.innerHTML = content.service.features
     .map(
@@ -117,9 +125,8 @@ function renderContent(content) {
     .join("");
 
   // Contact section
-  document.querySelector("#contact h2").textContent = content.contact.title;
-  document.querySelector("#contact p").textContent =
-    content.contact.description;
+  setText("#contact h2", content.contact.title);
+  setText("#contact > p", content.contact.description);
   const contactInfo = document.querySelector(".contact-info");
   contactInfo.innerHTML = `
         <p>
@@ -135,7 +142,7 @@ function renderContent(content) {
             ${content.contact.social_links
               .map(
                 (link) => `
-                <a href="${link.url}" target="_blank" class="social-link">
+                <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="social-link">
                     <i class="fab fa-${link.icon}"></i>
                     <span>${link.text}</span>
                 </a>
@@ -146,14 +153,11 @@ function renderContent(content) {
     `;
 
   // Newsletter section
-  document.querySelector("#newsletter h2").textContent =
-    content.newsletter.title;
-  document.querySelector("#newsletter p").textContent =
-    content.newsletter.description;
-  document.querySelector(".google-form").src = content.newsletter.form_url;
+  setText("#newsletter h2", content.newsletter.title);
+  setText("#newsletter > p", content.newsletter.description);
 
   // Footer
-  document.querySelector("footer p").textContent = content.footer.copyright;
+  setText("footer p", content.footer.copyright);
 }
 
 // Initialize the content loading

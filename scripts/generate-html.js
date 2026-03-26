@@ -18,34 +18,45 @@ const htmlTemplate = fs.readFileSync(
 const dom = new JSDOM(htmlTemplate);
 const document = dom.window.document;
 
+function setText(selector, value) {
+  const element = document.querySelector(selector);
+  if (element) {
+    element.textContent = value;
+  }
+}
+
+function setAttribute(selector, attribute, value) {
+  const element = document.querySelector(selector);
+  if (element) {
+    element.setAttribute(attribute, value);
+  }
+}
+
 // Update header content
-document.querySelector(".header-left h1").textContent =
-  yamlContent.header.title;
-document.querySelector(".header-left .subtitle").textContent =
-  yamlContent.header.subtitle;
+setText(".header-left h1", yamlContent.header.title);
+setText(".header-left .subtitle", yamlContent.header.subtitle);
 
 // Update navigation
 const navList = document.querySelector("nav ul");
 navList.innerHTML = yamlContent.header.navigation
-  .map((item) => `<li><a href="${item.href}">${item.text}</a></li>`)
+  .map((item) => {
+    const className = item.is_cta ? ' class="cta-button"' : "";
+    return `<li><a href="${item.href}"${className}>${item.text}</a></li>`;
+  })
   .join("");
 
 // Update hero section
-document.querySelector("#hero h2").textContent = yamlContent.hero.title;
-document.querySelector("#hero p").textContent = yamlContent.hero.description;
-document.querySelector(".featured-quote p").textContent =
-  yamlContent.hero.featured_quote.text;
-document.querySelector(
-  ".featured-quote cite"
-).textContent = `— ${yamlContent.hero.featured_quote.author}`;
-document.querySelector(".cta-button").textContent =
-  yamlContent.hero.cta_button.text;
-document.querySelector(".cta-button").href = yamlContent.hero.cta_button.href;
-document.querySelector(".hero-image img").src = yamlContent.hero.image.src;
-document.querySelector(".hero-image img").alt = yamlContent.hero.image.alt;
+setText("#hero h2", yamlContent.hero.title);
+setText("#hero .hero-text > p", yamlContent.hero.description);
+setText(".featured-quote p", yamlContent.hero.featured_quote.text);
+setText(".featured-quote cite", `— ${yamlContent.hero.featured_quote.author}`);
+setText("#hero .hero-text .cta-button", yamlContent.hero.cta_button.text);
+setAttribute("#hero .hero-text .cta-button", "href", yamlContent.hero.cta_button.href);
+setAttribute(".hero-image img", "src", yamlContent.hero.image.src);
+setAttribute(".hero-image img", "alt", yamlContent.hero.image.alt);
 
 // Update about section
-document.querySelector("#about h2").textContent = yamlContent.about.title;
+setText("#about h2", yamlContent.about.title);
 const aboutContent = document.querySelector("#about");
 aboutContent.innerHTML = `
   <h2>${yamlContent.about.title}</h2>
@@ -69,7 +80,7 @@ aboutContent.innerHTML = `
       ${yamlContent.about.credentials.trust_badges
         .map(
           (badge) => `
-        <a href="${badge.link}" target="_blank" class="badge-link">
+        <a href="${badge.link}" target="_blank" rel="noopener noreferrer" class="badge-link">
           <div class="badge-icon">
             <i class="fas fa-${badge.icon}"></i>
             <i class="fas fa-check badge-check"></i>
@@ -84,9 +95,8 @@ aboutContent.innerHTML = `
 `;
 
 // Update service section
-document.querySelector("#service h2").textContent = yamlContent.service.title;
-document.querySelector("#service p").textContent =
-  yamlContent.service.description;
+setText("#service h2", yamlContent.service.title);
+setText("#service > p", yamlContent.service.description);
 const serviceFeatures = document.querySelector(".service-features");
 serviceFeatures.innerHTML = yamlContent.service.features
   .map(
@@ -101,8 +111,7 @@ serviceFeatures.innerHTML = yamlContent.service.features
   .join("");
 
 // Update testimonials section
-document.querySelector("#testimonials h2").textContent =
-  yamlContent.testimonials.title;
+setText("#testimonials h2", yamlContent.testimonials.title);
 const testimonialsGrid = document.querySelector(".testimonials-grid");
 testimonialsGrid.innerHTML = yamlContent.testimonials.items
   .map(
@@ -117,9 +126,8 @@ testimonialsGrid.innerHTML = yamlContent.testimonials.items
   .join("");
 
 // Update contact section
-document.querySelector("#contact h2").textContent = yamlContent.contact.title;
-document.querySelector("#contact p").textContent =
-  yamlContent.contact.description;
+setText("#contact h2", yamlContent.contact.title);
+setText("#contact > p", yamlContent.contact.description);
 const contactInfo = document.querySelector(".contact-info");
 contactInfo.innerHTML = `
   <p>
@@ -135,7 +143,7 @@ contactInfo.innerHTML = `
     ${yamlContent.contact.social_links
       .map(
         (link) => `
-      <a href="${link.url}" target="_blank" class="social-link">
+      <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="social-link">
         <i class="fab fa-${link.icon}"></i>
         <span>${link.text}</span>
       </a>
@@ -146,13 +154,11 @@ contactInfo.innerHTML = `
 `;
 
 // Update newsletter section
-document.querySelector("#newsletter h2").textContent =
-  yamlContent.newsletter.title;
-document.querySelector("#newsletter p").textContent =
-  yamlContent.newsletter.description;
+setText("#newsletter h2", yamlContent.newsletter.title);
+setText("#newsletter > p", yamlContent.newsletter.description);
 
 // Update footer
-document.querySelector("footer p").textContent = yamlContent.footer.copyright;
+setText("footer p", yamlContent.footer.copyright);
 
 // Write the updated HTML to file
 fs.writeFileSync(

@@ -1,6 +1,6 @@
 # Dr. Sarah Coe-Odess - Therapist Matching Service Website
 
-This is the website for Dr. Sarah Coe-Odess's therapist matching service. The site is built with HTML, CSS, and JavaScript, using a content management system that makes it easy to update content without technical knowledge.
+This is the website for Dr. Sarah Coe-Odess's therapist matching service. The site is built with HTML, CSS, and JavaScript, using a YAML-based content file that makes it easy to update homepage content without technical knowledge.
 
 ## Project Structure
 
@@ -17,7 +17,9 @@ This is the website for Dr. Sarah Coe-Odess's therapist matching service. The si
 
 ## Content Management
 
-The website uses a YAML-based content management system that makes it easy to update content without touching any code. All editable content is stored in `content.yaml`.
+The homepage uses `content.yaml` as its canonical content source. On page load, the site fetches `content.yaml` and renders the latest committed homepage copy from that file.
+
+This means Sarah can edit `content.yaml` directly in GitHub and, once the commit is deployed, the homepage will pull the latest content automatically.
 
 ### How to Update Content
 
@@ -26,7 +28,7 @@ The website uses a YAML-based content management system that makes it easy to up
 3. Edit the text, links, or other content as needed
 4. Save the file
 5. Refresh the website to see your changes
-6. Run `yarn generate` to update the HTML file with the changes from the YAML file
+6. Commit and deploy the change so the live site can fetch the latest `content.yaml`
 
 ### Content Structure
 
@@ -38,7 +40,8 @@ The `content.yaml` file is organized into sections:
 - `service`: Service description and features
 - `testimonials`: Client testimonials
 - `contact`: Contact information and social links
-- `newsletter`: Newsletter signup section
+- `accessibility_newsletter`: Accessibility and affordability newsletter metadata
+- `newsletter`: Book club signup section copy
 - `footer`: Copyright information
 
 Example of updating content:
@@ -80,10 +83,16 @@ You can use any of these methods to run a local server:
 
 ## Technical Details
 
-- The website uses vanilla JavaScript for content management
+- The homepage uses vanilla JavaScript to render content from `content.yaml`
 - YAML parsing is handled by the js-yaml library
 - Font Awesome icons are used for visual elements
 - The site is responsive and works on all devices
+
+## Generator Script
+
+`yarn generate` updates the static homepage markup from `content.yaml`. This is optional for normal content edits because the homepage already renders the latest YAML at runtime.
+
+Keep using the generator only when you want to refresh the HTML fallback or keep the checked-in homepage markup synchronized with the YAML source.
 
 ## Contributing
 
