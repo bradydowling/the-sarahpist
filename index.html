@@ -829,7 +829,15 @@
           <p class="subtitle">Dr. Sarah Coe-Odess, Clinical Psychologist | Therapist Matching Specialist</p>
           <!-- content:header-brand:end -->
         </div>
-        <nav>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          <span class="nav-toggle-label">Menu</span>
+        </button>
+        <nav id="site-nav">
           <!-- content:header-nav:start -->
           <ul>
             <li><a href="index.html">Home</a></li>
@@ -1041,6 +1049,7 @@
       <!-- content:footer-copy:end -->
     </footer>
 
+    <script src="js/mobile-nav.js"></script>
     <script src="js/content-loader.js"></script>
 
     <script>

@@ -14,6 +14,7 @@
   --white: #ffffff;
   --max-width: 1200px;
   --border-radius: 12px;
+  --header-offset: 8rem;
 }
 
 body {
@@ -41,6 +42,34 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.nav-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  min-width: 5.5rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(26, 26, 46, 0.12);
+  border-radius: 999px;
+  background-color: var(--white);
+  color: var(--primary-color);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.nav-toggle:hover {
+  background-color: var(--light-bg);
+}
+
+.nav-toggle:focus-visible,
+nav a:focus-visible,
+.cta-button:focus-visible,
+.social-link:focus-visible,
+.badge-link:focus-visible {
+  outline: 3px solid rgba(0, 102, 255, 0.3);
+  outline-offset: 3px;
 }
 
 .header-left {
@@ -226,6 +255,7 @@ section {
   padding: 6rem 2rem;
   max-width: var(--max-width);
   margin: 0 auto;
+  scroll-margin-top: var(--header-offset);
 }
 
 section h2 {
@@ -354,7 +384,6 @@ footer {
 /* Responsive design */
 @media (max-width: 968px) {
   .header-content {
-    flex-direction: column;
     align-items: center;
     gap: 1rem;
   }
@@ -390,19 +419,21 @@ footer {
 
 @media (max-width: 768px) {
   header {
-    padding: 1rem;
+    position: sticky;
+    padding: 0.9rem 1rem;
   }
 
   .header-content {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.75rem;
   }
 
   .header-left {
-    flex-direction: column;
     align-items: flex-start;
     gap: 0.25rem;
+    min-width: 0;
   }
 
   header h1 {
@@ -410,29 +441,50 @@ footer {
   }
 
   .subtitle {
-    font-size: 1rem;
+    font-size: 0.95rem;
+    white-space: normal;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
   }
 
   nav {
+    display: none;
+    grid-column: 1 / -1;
     width: 100%;
     margin: 0;
   }
 
+  header.nav-open nav {
+    display: block;
+  }
+
   nav ul {
-    gap: 1.5rem;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(26, 26, 46, 0.08);
   }
 
   nav a {
+    display: block;
+    padding: 0.9rem 1rem;
+    border-radius: 14px;
+    background-color: var(--light-bg);
     font-size: 1rem;
   }
 
-  /* Adjust hero section padding to account for taller header */
-  #hero {
-    padding-top: 12rem;
+  nav a::after {
+    display: none;
   }
 
-  /* Make CTA button full width on mobile */
+  #hero {
+    padding-top: 4.5rem;
+    min-height: auto;
+  }
+
   .cta-button {
     width: 100%;
     text-align: center;
@@ -455,10 +507,6 @@ footer {
 
   .subtitle {
     font-size: 0.9rem;
-  }
-
-  nav ul {
-    gap: 1rem;
   }
 
   nav a {

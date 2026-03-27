@@ -321,7 +321,15 @@
           <h1>The Sarahpist</h1>
           <p class="subtitle">Free Resources</p>
         </div>
-        <nav>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          <span class="nav-toggle-label">Menu</span>
+        </button>
+        <nav id="site-nav">
           <ul>
             <li><a href="../index.html">Home</a></li>
             <li><a href="index.html">Free Resources</a></li>
@@ -630,6 +638,7 @@
       src="https://groot.mailerlite.com/js/w/webforms.min.js?v176e10baa5e7ed80d35ae235be3d5024"
       type="text/javascript"
     ></script>
+    <script src="../js/mobile-nav.js"></script>
     <script type="text/javascript">
       function ml_webform_success_25754879() {
         var $ = ml_jQuery || jQuery;

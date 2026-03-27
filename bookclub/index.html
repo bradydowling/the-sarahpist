@@ -256,7 +256,15 @@
           <h1>The Sarahpist</h1>
           <p class="subtitle">Well-Being Book Club</p>
         </div>
-        <nav>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          <span class="nav-toggle-label">Menu</span>
+        </button>
+        <nav id="site-nav">
           <ul>
             <li><a href="../index.html">Home</a></li>
             <li><a href="../free-resources/index.html">Free Resources</a></li>
@@ -476,6 +484,7 @@
       </footer>
     </div>
 
+    <script src="../js/mobile-nav.js"></script>
     <script>
       function ml_webform_success_25470445() {
         var $ = ml_jQuery || jQuery;
