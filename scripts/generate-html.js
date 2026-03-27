@@ -1,170 +1,256 @@
 const fs = require("fs");
 const path = require("path");
 const yaml = require("js-yaml");
-const { JSDOM } = require("jsdom");
 
-// Read the YAML content
-const yamlContent = yaml.load(
+const content = yaml.load(
   fs.readFileSync(path.join(__dirname, "../content.yaml"), "utf8")
 );
+const indexPath = path.join(__dirname, "../index.html");
+let html = fs.readFileSync(indexPath, "utf8");
 
-// Read the HTML template
-const htmlTemplate = fs.readFileSync(
-  path.join(__dirname, "../index.html"),
-  "utf8"
-);
-
-// Create a DOM from the HTML template
-const dom = new JSDOM(htmlTemplate);
-const document = dom.window.document;
-
-function setText(selector, value) {
-  const element = document.querySelector(selector);
-  if (element) {
-    element.textContent = value;
-  }
+function escapeText(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
 }
 
-function setAttribute(selector, attribute, value) {
-  const element = document.querySelector(selector);
-  if (element) {
-    element.setAttribute(attribute, value);
-  }
+function escapeAttribute(value) {
+  return escapeText(value).replace(/"/g, "&quot;");
 }
 
-// Update header content
-setText(".header-left h1", yamlContent.header.title);
-setText(".header-left .subtitle", yamlContent.header.subtitle);
+function indentBlock(block, indent) {
+  return block
+    .trim()
+    .split("\n")
+    .map((line) => `${indent}${line}`)
+    .join("\n");
+}
 
-// Update navigation
-const navList = document.querySelector("nav ul");
-navList.innerHTML = yamlContent.header.navigation
-  .map((item) => {
-    const className = item.is_cta ? ' class="cta-button"' : "";
-    return `<li><a href="${item.href}"${className}>${item.text}</a></li>`;
-  })
-  .join("");
+function replaceBlock(source, name, block) {
+  const startMarker = `<!-- content:${name}:start -->`;
+  const endMarker = `<!-- content:${name}:end -->`;
+  const startIndex = source.indexOf(startMarker);
+  const endIndex = source.indexOf(endMarker);
 
-// Update hero section
-setText("#hero h2", yamlContent.hero.title);
-setText("#hero .hero-text > p", yamlContent.hero.description);
-setText(".featured-quote p", yamlContent.hero.featured_quote.text);
-setText(".featured-quote cite", `— ${yamlContent.hero.featured_quote.author}`);
-setText("#hero .hero-text .cta-button", yamlContent.hero.cta_button.text);
-setAttribute("#hero .hero-text .cta-button", "href", yamlContent.hero.cta_button.href);
-setAttribute(".hero-image img", "src", yamlContent.hero.image.src);
-setAttribute(".hero-image img", "alt", yamlContent.hero.image.alt);
+  if (startIndex === -1 || endIndex === -1 || endIndex < startIndex) {
+    throw new Error(`Missing content markers for "${name}"`);
+  }
 
-// Update about section
-setText("#about h2", yamlContent.about.title);
-const aboutContent = document.querySelector("#about");
-aboutContent.innerHTML = `
-  <h2>${yamlContent.about.title}</h2>
-  ${yamlContent.about.content.map((p) => `<p>${p}</p>`).join("")}
-  <div class="credentials-section">
-    <h3>${yamlContent.about.credentials.title}</h3>
-    <div class="credentials-grid">
-      ${yamlContent.about.credentials.items
-        .map(
-          (item) => `
-        <div class="credential">
-          <i class="fas fa-${item.icon} feature-icon"></i>
-          <h4>${item.title}</h4>
-          <p>${item.description}</p>
-        </div>
-      `
-        )
-        .join("")}
-    </div>
-    <div class="trust-badges">
-      ${yamlContent.about.credentials.trust_badges
-        .map(
-          (badge) => `
-        <a href="${badge.link}" target="_blank" rel="noopener noreferrer" class="badge-link">
-          <div class="badge-icon">
-            <i class="fas fa-${badge.icon}"></i>
-            <i class="fas fa-check badge-check"></i>
-          </div>
-          <span>${badge.text}</span>
-        </a>
-      `
-        )
-        .join("")}
-    </div>
-  </div>
+  const lineStart = source.lastIndexOf("\n", startIndex) + 1;
+  const lineEnd = source.indexOf("\n", endIndex);
+  const blockEnd = lineEnd === -1 ? source.length : lineEnd;
+  const indent = source.slice(lineStart, startIndex);
+  const replacement = [
+    `${indent}${startMarker}`,
+    indentBlock(block, indent),
+    `${indent}${endMarker}`,
+  ].join("\n");
+
+  return `${source.slice(0, lineStart)}${replacement}${source.slice(blockEnd)}`;
+}
+
+function renderHeaderBrand(data) {
+  return `
+<h1>${escapeText(data.header.title)}</h1>
+<p class="subtitle">${escapeText(data.header.subtitle)}</p>
 `;
+}
 
-// Update service section
-setText("#service h2", yamlContent.service.title);
-setText("#service > p", yamlContent.service.description);
-const serviceFeatures = document.querySelector(".service-features");
-serviceFeatures.innerHTML = yamlContent.service.features
-  .map(
-    (feature) => `
-  <div class="feature">
-    <i class="fas fa-${feature.icon} feature-icon"></i>
-    <h3>${feature.title}</h3>
-    <p>${feature.description}</p>
+function renderHeaderNav(data) {
+  const items = data.header.navigation
+    .map((item) => {
+      const className = item.is_cta ? ' class="cta-button"' : "";
+      return `  <li><a href="${escapeAttribute(item.href)}"${className}>${escapeText(item.text)}</a></li>`;
+    })
+    .join("\n");
+
+  return `
+<ul>
+${items}
+</ul>
+`;
+}
+
+function renderHeroText(data) {
+  return `
+<h2>${escapeText(data.hero.title)}</h2>
+<p>${escapeText(data.hero.description)}</p>
+<div class="featured-quote">
+  <p>${escapeText(data.hero.featured_quote.text)}</p>
+  <cite>— ${escapeText(data.hero.featured_quote.author)}</cite>
+</div>
+<a href="${escapeAttribute(data.hero.cta_button.href)}" class="cta-button">${escapeText(data.hero.cta_button.text)}</a>
+`;
+}
+
+function renderHeroImage(data) {
+  return `
+<img
+  src="${escapeAttribute(data.hero.image.src)}"
+  alt="${escapeAttribute(data.hero.image.alt)}"
+  class="headshot"
+>
+`;
+}
+
+function renderAbout(data) {
+  const paragraphs = data.about.content
+    .map((paragraph) => `<p>${escapeText(paragraph)}</p>`)
+    .join("\n");
+  const credentials = data.about.credentials.items
+    .map(
+      (item) => [
+        '<div class="credential">',
+        `  <i class="fas fa-${escapeAttribute(item.icon)} feature-icon"></i>`,
+        `  <h4>${escapeText(item.title)}</h4>`,
+        `  <p>${escapeText(item.description)}</p>`,
+        "</div>",
+      ].join("\n")
+    )
+    .join("\n");
+  const badges = data.about.credentials.trust_badges
+    .map(
+      (badge) =>
+        [
+          "<a",
+          `  href="${escapeAttribute(badge.link)}"`,
+          '  target="_blank"',
+          '  rel="noopener noreferrer"',
+          '  class="badge-link"',
+          ">",
+          '  <div class="badge-icon">',
+          `    <i class="fas fa-${escapeAttribute(badge.icon)}"></i>`,
+          '    <i class="fas fa-check badge-check"></i>',
+          "  </div>",
+          `  <span>${escapeText(badge.text)}</span>`,
+          "</a>",
+        ].join("\n")
+    )
+    .join("\n");
+
+  return `
+<h2>${escapeText(data.about.title)}</h2>
+${paragraphs}
+<div class="credentials-section">
+  <h3>${escapeText(data.about.credentials.title)}</h3>
+  <div class="credentials-grid">
+${credentials}
   </div>
-`
-  )
-  .join("");
-
-// Update testimonials section
-setText("#testimonials h2", yamlContent.testimonials.title);
-const testimonialsGrid = document.querySelector(".testimonials-grid");
-testimonialsGrid.innerHTML = yamlContent.testimonials.items
-  .map(
-    (testimonial) => `
-  <div class="testimonial">
-    <i class="fas fa-quote-left quote-icon"></i>
-    <p>${testimonial.quote}</p>
-    <cite>— ${testimonial.author}</cite>
+  <div class="trust-badges">
+${badges}
   </div>
-`
-  )
-  .join("");
+</div>
+`;
+}
 
-// Update contact section
-setText("#contact h2", yamlContent.contact.title);
-setText("#contact > p", yamlContent.contact.description);
-const contactInfo = document.querySelector(".contact-info");
-contactInfo.innerHTML = `
+function renderService(data) {
+  const features = data.service.features
+    .map(
+      (feature) =>
+        [
+          '<div class="feature">',
+          `  <i class="fas fa-${escapeAttribute(feature.icon)} feature-icon"></i>`,
+          `  <h3>${escapeText(feature.title)}</h3>`,
+          `  <p>${escapeText(feature.description)}</p>`,
+          "</div>",
+        ].join("\n")
+    )
+    .join("\n");
+
+  return `
+<h2>${escapeText(data.service.title)}</h2>
+<p>${escapeText(data.service.description)}</p>
+<div class="service-features">
+${features}
+</div>
+`;
+}
+
+function renderTestimonials(data) {
+  const items = data.testimonials.items
+    .map(
+      (testimonial) =>
+        [
+          '<div class="testimonial">',
+          '  <i class="fas fa-quote-left quote-icon"></i>',
+          `  <p>${escapeText(testimonial.quote)}</p>`,
+          `  <cite>— ${escapeText(testimonial.author)}</cite>`,
+          "</div>",
+        ].join("\n")
+    )
+    .join("\n");
+
+  return `
+<h2>${escapeText(data.testimonials.title)}</h2>
+<div class="testimonials-grid">
+${items}
+</div>
+`;
+}
+
+function renderContact(data) {
+  const links = data.contact.social_links
+    .map(
+      (link) =>
+        [
+          "<a",
+          `  href="${escapeAttribute(link.url)}"`,
+          '  target="_blank"',
+          '  rel="noopener noreferrer"',
+          '  class="social-link"',
+          ">",
+          `  <i class="fab fa-${escapeAttribute(link.icon)}"></i>`,
+          `  <span>${escapeText(link.text)}</span>`,
+          "</a>",
+        ].join("\n")
+    )
+    .join("\n");
+
+  return `
+<h2>${escapeText(data.contact.title)}</h2>
+<p>${escapeText(data.contact.description)}</p>
+<div class="contact-info">
   <p>
     <i class="fas fa-envelope"></i>
-    Email: <a href="mailto:${yamlContent.contact.info.email}">${
-  yamlContent.contact.info.email
-}</a>
+    Email: <a href="mailto:${escapeAttribute(data.contact.info.email)}">${escapeText(
+    data.contact.info.email
+  )}</a>
   </p>
   <p>
-    <i class="fas fa-globe"></i> ${yamlContent.contact.info.availability}
+    <i class="fas fa-globe"></i> ${escapeText(data.contact.info.availability)}
   </p>
   <div class="social-links">
-    ${yamlContent.contact.social_links
-      .map(
-        (link) => `
-      <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="social-link">
-        <i class="fab fa-${link.icon}"></i>
-        <span>${link.text}</span>
-      </a>
-    `
-      )
-      .join("")}
+${links}
   </div>
+</div>
 `;
+}
 
-// Update newsletter section
-setText("#newsletter h2", yamlContent.newsletter.title);
-setText("#newsletter > p", yamlContent.newsletter.description);
+function renderNewsletterCopy(data) {
+  return `
+<h2>${escapeText(data.newsletter.title)}</h2>
+<p>${escapeText(data.newsletter.description)}</p>
+`;
+}
 
-// Update footer
-setText("footer p", yamlContent.footer.copyright);
+function renderFooterCopy(data) {
+  return `
+<p>${escapeText(data.footer.copyright)}</p>
+`;
+}
 
-// Write the updated HTML to file
-fs.writeFileSync(
-  path.join(__dirname, "../index.html"),
-  dom.serialize(),
-  "utf8"
-);
+html = replaceBlock(html, "header-brand", renderHeaderBrand(content));
+html = replaceBlock(html, "header-nav", renderHeaderNav(content));
+html = replaceBlock(html, "hero-text", renderHeroText(content));
+html = replaceBlock(html, "hero-image", renderHeroImage(content));
+html = replaceBlock(html, "about", renderAbout(content));
+html = replaceBlock(html, "service", renderService(content));
+html = replaceBlock(html, "testimonials", renderTestimonials(content));
+html = replaceBlock(html, "contact", renderContact(content));
+html = replaceBlock(html, "newsletter-copy", renderNewsletterCopy(content));
+html = replaceBlock(html, "footer-copy", renderFooterCopy(content));
+
+fs.writeFileSync(indexPath, html, "utf8");
 
 console.log("HTML file has been updated successfully!");
