@@ -134,3 +134,11 @@ export interface BookClubDiscussion {
   thumbnailUrl: string;
   monthLabel: string;
 }
+
+export interface ResourceGuideContent {
+  guides: ResourceGuide[];
+}
+
+export interface BookClubDiscussionContent {
+  discussions: BookClubDiscussion[];
+}

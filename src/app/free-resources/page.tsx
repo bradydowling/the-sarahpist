@@ -3,8 +3,10 @@ import Link from "next/link";
 import { BrainCircuit, ChevronRight, ReceiptText, Wallet } from "lucide-react";
 import MailerLiteInlineForm from "@/components/forms/MailerLiteInlineForm";
 import Container from "@/components/ui/Container";
-import { resourceGuides } from "@/lib/content";
+import { getResourceGuides } from "@/lib/content";
 import { withPageSeo } from "@/lib/seo";
+
+const resourceGuides = getResourceGuides();
 
 const resourceIconMap = {
   receipt: ReceiptText,

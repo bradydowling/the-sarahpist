@@ -3,10 +3,11 @@ import type { Metadata } from "next";
 import { ArrowUpRight, PlayCircle } from "lucide-react";
 import MailerLiteInlineForm from "@/components/forms/MailerLiteInlineForm";
 import Container from "@/components/ui/Container";
-import { bookClubDiscussions, getSiteContent } from "@/lib/content";
+import { getBookClubDiscussions, getSiteContent } from "@/lib/content";
 import { withPageSeo } from "@/lib/seo";
 
 const content = getSiteContent();
+const bookClubDiscussions = getBookClubDiscussions();
 
 export const metadata: Metadata = withPageSeo("/bookclub", {
   title: "Well-Being Book Club",
