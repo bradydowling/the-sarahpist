@@ -3,13 +3,34 @@
   "version": "1.0.0",
   "description": "Therapist matching service website",
   "scripts": {
-    "start": "live-server --port=8000 --no-browser --ignore=.git/**",
-    "generate": "node scripts/generate-html.js"
+    "dev": "next dev",
+    "build": "next build --webpack",
+    "start": "next start",
+    "lint": "eslint .",
+    "type-check": "tsc --noEmit",
+    "legacy:start": "live-server --port=8000 --no-browser --ignore=.git/**",
+    "legacy:generate": "node scripts/generate-html.js"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.18",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^25.2.3",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "eslint": "^9.38.0",
+    "eslint-config-next": "16.1.6",
     "live-server": "1.2.1",
     "js-yaml": "^4.1.0",
-    "jsdom": "^22.1.0"
+    "jsdom": "^22.1.0",
+    "tailwindcss": "^4.1.18",
+    "typescript": "^5.9.3"
   },
-  "dependencies": {}
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.575.0",
+    "next": "16.1.6",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "tailwind-merge": "^3.4.0"
+  }
 }

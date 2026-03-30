@@ -1,104 +1,77 @@
 # Dr. Sarah Coe-Odess - Therapist Matching Service Website
 
-This is the website for Dr. Sarah Coe-Odess's therapist matching service. The site is built with HTML, CSS, and JavaScript, using a YAML-based content file that makes it easy to update homepage content without technical knowledge.
+This repo is now mid-transition from the original static HTML/CSS/JS site to a Next.js + Tailwind + TypeScript marketing site.
 
-## Project Structure
+## Current Status
 
-```
+- The new app lives in `src/` and is the primary path forward.
+- `content.yaml` still serves as the canonical content source for the homepage and shared site copy.
+- The old static files (`index.html`, `css/`, `js/`, `bookclub/`, `free-resources/`) are still in the repo as legacy fallback/reference during the migration.
+
+## New App Structure
+
+```text
 .
-├── index.html          # Main HTML file
-├── content.yaml        # Content management file
-├── css/
-│   └── styles.css      # Stylesheets
-├── js/
-│   └── content-loader.js # Content loading and rendering logic
-└── images/            # Image assets
+├── content.yaml
+├── public/
+│   ├── favicon.ico
+│   ├── images/
+│   └── resources/
+├── src/
+│   ├── app/
+│   ├── components/
+│   ├── lib/
+│   └── types/
+└── scripts/
 ```
 
 ## Content Management
 
-The homepage uses `content.yaml` as its canonical content source. On page load, the site fetches `content.yaml` and renders the latest committed homepage copy from that file.
+Sarah can keep editing `content.yaml` in GitHub. The new Next app reads that file server-side, so committed YAML changes continue to drive the homepage content without needing the old browser-side DOM patching approach.
 
-This means Sarah can edit `content.yaml` directly in GitHub and, once the commit is deployed, the homepage will pull the latest content automatically.
+The YAML file currently defines:
 
-### How to Update Content
+- `header`
+- `hero`
+- `about`
+- `service`
+- `testimonials`
+- `contact`
+- `accessibility_newsletter`
+- `newsletter`
+- `footer`
 
-1. Open `content.yaml` in any text editor
-2. Find the section you want to update
-3. Edit the text, links, or other content as needed
-4. Save the file
-5. Refresh the website to see your changes
-6. Commit and deploy the change so the live site can fetch the latest `content.yaml`
+## Local Development
 
-### Content Structure
+Use the new app by default:
 
-The `content.yaml` file is organized into sections:
-
-- `header`: Website title, subtitle, and navigation menu
-- `hero`: Main banner section with title, description, and featured quote
-- `about`: About section with credentials and expertise
-- `service`: Service description and features
-- `testimonials`: Client testimonials
-- `contact`: Contact information and social links
-- `accessibility_newsletter`: Accessibility and affordability newsletter metadata
-- `newsletter`: Book club signup section copy
-- `footer`: Copyright information
-
-Example of updating content:
-
-```yaml
-hero:
-  title: "Find Your Perfect Therapist Match"
-  description: "Expert guidance from a Harvard-affiliated clinical psychologist..."
+```bash
+yarn dev
 ```
 
-## Running the Website
+Other useful commands:
 
-### Local Development
+```bash
+yarn lint
+yarn type-check
+yarn build
+```
 
-1. Clone this repository
-2. Open `index.html` in a web browser
-   - Note: Due to browser security restrictions, you may need to use a local server to view the site properly
-3. Any changes to `content.yaml` will be reflected when you refresh the page
+## Legacy Scripts
 
-### Using a Local Server
+The old static workflow is still available while the migration is in progress:
 
-You can use any of these methods to run a local server:
+```bash
+yarn legacy:start
+yarn legacy:generate
+```
 
-1. Python 3:
+Use those only if you need to inspect or refresh the legacy HTML output.
 
-   ```bash
-   python -m http.server 8000
-   ```
+## Notes
 
-2. Node.js (with `http-server` installed):
-
-   ```bash
-   npx http-server
-   ```
-
-3. VS Code Live Server extension:
-   - Right-click on `index.html`
-   - Select "Open with Live Server"
-
-## Technical Details
-
-- The homepage uses vanilla JavaScript to render content from `content.yaml`
-- YAML parsing is handled by the js-yaml library
-- Font Awesome icons are used for visual elements
-- The site is responsive and works on all devices
-
-## Generator Script
-
-`yarn generate` updates the static homepage markup from `content.yaml`. This is optional for normal content edits because the homepage already renders the latest YAML at runtime.
-
-Keep using the generator only when you want to refresh the HTML fallback or keep the checked-in homepage markup synchronized with the YAML source.
-
-## Contributing
-
-1. Make your changes to `content.yaml`
-2. Test the changes locally
-3. Submit a pull request with your changes
+- `yarn build` uses `next build --webpack` for now because it is more stable than Turbopack in this environment during the migration.
+- `NEXT_PUBLIC_SITE_INDEXING_ENABLED=true` should be set when you want the Next version to emit indexable robots metadata.
 
 ## License
 
