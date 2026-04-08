@@ -213,11 +213,25 @@ export default function HomePage() {
       <Section id="contact" tabIndex={-1} eyebrow="Get started" title={content.contact.title} description={content.contact.description}>
         <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
           <div className="surface-panel p-8">
-            <p className="eyebrow">Consultation flow</p>
-            <h3 className="font-serif text-4xl leading-none text-foreground">Start with a quick email</h3>
-            <p className="mt-4 max-w-2xl text-base leading-8 text-muted">
-              After you click Book a Consultation, press the email button below to open your email app and send Sarah a short note about what you&apos;re looking for.
-            </p>
+            <div className="consultation-guide-card rounded-[1.75rem] border border-sage/20 bg-linear-to-br from-sage-soft/65 via-white to-sand/45 p-6 shadow-[0_18px_44px_rgba(49,69,56,0.08)] sm:p-7">
+              <div className="inline-flex items-center gap-2 rounded-full border border-sage/20 bg-white/90 px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-sage-deep shadow-[0_10px_24px_rgba(49,69,56,0.08)]">
+                <span className="h-2 w-2 rounded-full bg-sage" />
+                Start here
+              </div>
+              <p className="eyebrow mt-5">Consultation flow</p>
+              <h3 className="font-serif text-4xl leading-none text-foreground">Start with a quick email</h3>
+              <p className="mt-4 max-w-2xl text-base leading-8 text-muted">
+                After you click Book a Consultation, press the email button below to open your email app and send Sarah a short note about what you&apos;re looking for.
+              </p>
+
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <a href={consultationEmailHref} className="consultation-guide-button button-primary inline-flex w-full gap-2 sm:w-auto">
+                  <Mail className="h-4 w-4" />
+                  Email Sarah to start consultation
+                </a>
+                <p className="text-sm leading-7 text-muted">This opens your email app.</p>
+              </div>
+            </div>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               {consultationSteps.map((item) => (
@@ -229,12 +243,7 @@ export default function HomePage() {
               ))}
             </div>
 
-            <a href={consultationEmailHref} className="button-primary mt-8 inline-flex w-full gap-2 sm:w-auto">
-              <Mail className="h-4 w-4" />
-              Email Sarah to start consultation
-            </a>
-            <p className="mt-4 text-sm leading-7 text-muted">This opens your email app.</p>
-            <p className="mt-1 text-sm leading-7 text-muted">
+            <p className="mt-5 text-sm leading-7 text-muted">
               If you prefer to type it yourself, email{" "}
               <a
                 href={`mailto:${content.contact.info.email}`}
