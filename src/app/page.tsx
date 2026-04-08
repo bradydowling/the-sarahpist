@@ -21,6 +21,19 @@ import { getSiteContent, normalizeHref } from "@/lib/content";
 import { withPageSeo } from "@/lib/seo";
 
 const content = getSiteContent();
+const consultationEmailHref = `mailto:${content.contact.info.email}?subject=${encodeURIComponent("Consultation inquiry")}`;
+const consultationSteps = [
+  {
+    step: "Step 1",
+    title: "Jump to booking",
+    description: "Use any Book a Consultation button on the page to land here and see the next step.",
+  },
+  {
+    step: "Step 2",
+    title: "Send a quick email",
+    description: "Press the email button below to open your email app and tell Sarah what kind of support you need.",
+  },
+] as const;
 
 const iconMap = {
   certificate: ShieldCheck,
@@ -68,6 +81,11 @@ export default function HomePage() {
                   Explore the Book Club
                 </Link>
               </div>
+
+              <p className="flex items-start gap-3 text-sm leading-7 text-muted">
+                <Mail className="mt-1 h-4 w-4 shrink-0 text-sage-deep" />
+                Booking starts by email. After you tap a consultation button, use the email button in the Get Started section to open a message to Sarah.
+              </p>
 
               <div className="surface-card p-6 sm:p-8">
                 <p className="text-sm font-semibold uppercase tracking-[0.24em] text-sage">Client perspective</p>
@@ -194,21 +212,41 @@ export default function HomePage() {
       <Section id="contact" eyebrow="Get started" title={content.contact.title} description={content.contact.description}>
         <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
           <div className="surface-panel p-8">
-            <div className="flex items-start gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-sage-soft text-sage-deep">
-                <Mail className="h-6 w-6" />
-              </div>
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.22em] text-sage">Contact</p>
-                <a href={`mailto:${content.contact.info.email}`} className="mt-3 inline-flex text-2xl font-semibold text-foreground transition hover:text-sage">
-                  {content.contact.info.email}
-                </a>
-                <p className="mt-4 inline-flex items-center gap-2 text-base text-muted">
-                  <Globe className="h-4 w-4" />
-                  {content.contact.info.availability}
-                </p>
-              </div>
+            <p className="eyebrow">Consultation flow</p>
+            <h3 className="font-serif text-4xl leading-none text-foreground">Start with a quick email</h3>
+            <p className="mt-4 max-w-2xl text-base leading-8 text-muted">
+              After you click Book a Consultation, press the email button below to open your email app and send Sarah a short note about what you&apos;re looking for.
+            </p>
+
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              {consultationSteps.map((item) => (
+                <div key={item.step} className="rounded-[1.5rem] border border-line/70 bg-white p-5">
+                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sage">{item.step}</p>
+                  <h4 className="mt-3 text-lg font-semibold text-foreground">{item.title}</h4>
+                  <p className="mt-2 text-sm leading-7 text-muted">{item.description}</p>
+                </div>
+              ))}
             </div>
+
+            <a href={consultationEmailHref} className="button-primary mt-8 inline-flex w-full gap-2 sm:w-auto">
+              <Mail className="h-4 w-4" />
+              Email Sarah to start consultation
+            </a>
+            <p className="mt-4 text-sm leading-7 text-muted">This opens your email app.</p>
+            <p className="mt-1 text-sm leading-7 text-muted">
+              If you prefer to type it yourself, email{" "}
+              <a
+                href={`mailto:${content.contact.info.email}`}
+                className="font-semibold text-foreground underline decoration-sage/40 underline-offset-4 transition hover:text-sage"
+              >
+                {content.contact.info.email}
+              </a>
+              .
+            </p>
+            <p className="mt-4 inline-flex items-center gap-2 text-base text-muted">
+              <Globe className="h-4 w-4" />
+              {content.contact.info.availability}
+            </p>
 
             <div className="mt-8 rounded-[1.5rem] border border-line/70 bg-white p-6">
               <p className="text-sm font-semibold uppercase tracking-[0.22em] text-muted">Follow along</p>
