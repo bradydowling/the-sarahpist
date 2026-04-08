@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Instagram, Youtube } from "lucide-react";
 import Container from "@/components/ui/Container";
+import HashLink from "@/components/navigation/HashLink";
 import type { NavigationItem, SocialLink } from "@/types/content";
 import { isExternalHref } from "@/lib/utils";
 
@@ -41,9 +42,15 @@ export default function Footer({ title, subtitle, copyright, email, navigation, 
                 const external = isExternalHref(item.href);
                 return (
                   <li key={`${item.text}-${item.href}`}>
-                    <Link href={item.href} target={external ? "_blank" : undefined} rel={external ? "noopener noreferrer" : undefined} className="transition hover:text-sage">
-                      {item.text}
-                    </Link>
+                    {external ? (
+                      <Link href={item.href} target="_blank" rel="noopener noreferrer" className="transition hover:text-sage">
+                        {item.text}
+                      </Link>
+                    ) : (
+                      <HashLink href={item.href} className="transition hover:text-sage">
+                        {item.text}
+                      </HashLink>
+                    )}
                   </li>
                 );
               })}

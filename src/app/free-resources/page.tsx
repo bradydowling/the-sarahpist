@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { BrainCircuit, ChevronRight, ReceiptText, Wallet } from "lucide-react";
 import MailerLiteInlineForm from "@/components/forms/MailerLiteInlineForm";
+import HashLink from "@/components/navigation/HashLink";
 import Container from "@/components/ui/Container";
 import { getResourceGuides } from "@/lib/content";
 import { withPageSeo } from "@/lib/seo";
@@ -32,9 +32,9 @@ export default function FreeResourcesPage() {
                 Access a small library of practical guides designed to make therapy easier to navigate, understand, and afford.
               </p>
             </div>
-            <Link href="/#contact" className="button-secondary">
+            <HashLink href="/#contact" className="button-secondary">
               Need a consultation instead?
-            </Link>
+            </HashLink>
           </div>
         </div>
 
@@ -72,9 +72,9 @@ export default function FreeResourcesPage() {
               If the guides are useful but you still want a curated recommendation, the consultation flow on the homepage is the best next step.
             </p>
           </div>
-          <Link href="/#contact" className="button-primary">
+          <HashLink href="/#contact" className="button-primary">
             Go to consultation <ChevronRight className="ml-1 h-4 w-4" />
-          </Link>
+          </HashLink>
         </div>
       </Container>
     </div>

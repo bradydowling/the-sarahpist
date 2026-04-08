@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
+import HashScrollManager from "@/components/navigation/HashScrollManager";
 import { getPrimaryNavigation, getSiteContent } from "@/lib/content";
 
 interface SiteShellProps {
@@ -13,6 +14,7 @@ export default function SiteShell({ children }: SiteShellProps) {
 
   return (
     <>
+      <HashScrollManager />
       <Header title={content.header.title} subtitle={content.header.subtitle} navigation={navigation} />
       <main className="flex-1">{children}</main>
       <Footer

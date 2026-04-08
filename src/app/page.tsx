@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import Section from "@/components/ui/Section";
 import Container from "@/components/ui/Container";
+import HashLink from "@/components/navigation/HashLink";
 import { getSiteContent, normalizeHref } from "@/lib/content";
 import { withPageSeo } from "@/lib/seo";
 
@@ -74,9 +75,9 @@ export default function HomePage() {
               </div>
 
               <div className="flex flex-col gap-3 sm:flex-row">
-                <Link href={normalizeHref(content.hero.cta_button.href)} className="button-primary">
+                <HashLink href={normalizeHref(content.hero.cta_button.href)} className="button-primary">
                   {content.hero.cta_button.text}
-                </Link>
+                </HashLink>
                 <Link href="/bookclub" className="button-secondary">
                   Explore the Book Club
                 </Link>
@@ -209,7 +210,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section id="contact" eyebrow="Get started" title={content.contact.title} description={content.contact.description}>
+      <Section id="contact" tabIndex={-1} eyebrow="Get started" title={content.contact.title} description={content.contact.description}>
         <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
           <div className="surface-panel p-8">
             <p className="eyebrow">Consultation flow</p>

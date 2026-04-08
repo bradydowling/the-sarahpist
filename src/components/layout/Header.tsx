@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import Container from "@/components/ui/Container";
+import HashLink from "@/components/navigation/HashLink";
 import type { NavigationItem } from "@/types/content";
 import { cn, isExternalHref } from "@/lib/utils";
 
@@ -58,22 +59,39 @@ export default function Header({ title, subtitle, navigation }: HeaderProps) {
 
                 return (
                   <li key={`${item.text}-${href}`}>
-                    <Link
-                      href={href}
-                      onClick={() => setMobileMenuOpen(false)}
-                      className={cn(
-                        "inline-flex w-full items-center justify-center rounded-full px-4 py-3 text-sm font-medium transition md:w-auto",
-                        item.is_cta
-                          ? "bg-sage text-white shadow-[0_16px_36px_rgba(48,68,55,0.22)] hover:bg-sage-deep"
-                          : isActive
-                            ? "bg-sage-soft text-sage-deep"
-                            : "text-foreground hover:bg-sand/80",
-                      )}
-                      target={external ? "_blank" : undefined}
-                      rel={external ? "noopener noreferrer" : undefined}
-                    >
-                      {item.text}
-                    </Link>
+                    {external ? (
+                      <Link
+                        href={href}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className={cn(
+                          "inline-flex w-full items-center justify-center rounded-full px-4 py-3 text-sm font-medium transition md:w-auto",
+                          item.is_cta
+                            ? "bg-sage text-white shadow-[0_16px_36px_rgba(48,68,55,0.22)] hover:bg-sage-deep"
+                            : isActive
+                              ? "bg-sage-soft text-sage-deep"
+                              : "text-foreground hover:bg-sand/80",
+                        )}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {item.text}
+                      </Link>
+                    ) : (
+                      <HashLink
+                        href={href}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className={cn(
+                          "inline-flex w-full items-center justify-center rounded-full px-4 py-3 text-sm font-medium transition md:w-auto",
+                          item.is_cta
+                            ? "bg-sage text-white shadow-[0_16px_36px_rgba(48,68,55,0.22)] hover:bg-sage-deep"
+                            : isActive
+                              ? "bg-sage-soft text-sage-deep"
+                              : "text-foreground hover:bg-sand/80",
+                        )}
+                      >
+                        {item.text}
+                      </HashLink>
+                    )}
                   </li>
                 );
               })}

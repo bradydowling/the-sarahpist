@@ -34,6 +34,20 @@
 }
 
 @layer base {
+  @keyframes hashTargetPulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(100, 121, 105, 0);
+    }
+
+    35% {
+      box-shadow: 0 0 0 0.8rem rgba(100, 121, 105, 0.12);
+    }
+
+    100% {
+      box-shadow: 0 0 0 0 rgba(100, 121, 105, 0);
+    }
+  }
+
   html {
     scroll-behavior: smooth;
   }
@@ -63,6 +77,10 @@
 
   ::selection {
     background: rgba(201, 130, 97, 0.2);
+  }
+
+  .hash-target-highlight {
+    animation: hashTargetPulse 1.2s ease;
   }
 }
 
